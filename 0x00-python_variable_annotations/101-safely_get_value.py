@@ -2,8 +2,10 @@
 '''Type annotated module'''
 
 from typing import Any, Mapping, Union, TypeVar
+
 T = TypeVar('T')
 Res = Union[T, None]
+Def = Union[T, None]
 
 
 def safely_get_value(dct: Mapping, key: Any, default=None) -> Res:
