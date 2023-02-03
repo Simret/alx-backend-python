@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 '''Type annotated module'''
 
-from typing import Any, Mapping, Union, TypeVar
+from typing import Any, Mapping, Union, TypeVar, Optional
 
 T = TypeVar('T')
-Res = Union[T, None]
-Def = Union[T, None]
 
 
-def safely_get_value(dct: Mapping, key: Any, default=None) -> Res:
+def safely_get_value(dct: Mapping, key: Any, default=Optional[T]=None) -> Union[Any, T]:
     '''Type annotation values'''
     if key in dct:
         return dct[key]
