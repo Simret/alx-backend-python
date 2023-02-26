@@ -19,4 +19,5 @@ class TestAccessNestedMap(unittest.TestCase):
             expected: Union[Dict, int],
     ) -> None:
         '''Testing `access_nested_map`'s output'''
-        self.assertEqual(access_nested_map(nested_map, path), expected)
+        response = access_nested_map(nested_map, path)
+        self.assertEqual(response, expected)
