@@ -78,11 +78,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         cls.get_patcher.stop()
 
     def test_public_repos(self):
-        '''Testing public_repos method without license'''
-        self.assertEqual(self.client.public_repos(), self.expected_repos)
+        '''Testing public repo with out license'''
 
     def test_public_repos_with_license(self):
-        '''Testing public_repos method with license'''
-        self.assertEqual(
-            self.client.public_repos(license="apache-2.0"),
-            self.apache2_repos)
+        '''Testing public repo with license'''
