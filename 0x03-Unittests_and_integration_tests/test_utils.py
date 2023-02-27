@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''Testing the utils module'''
 import unittest
+from utils import access_nested_map
 from typing import Dict, Tuple, Union
 from parameterized import parameterized
 
