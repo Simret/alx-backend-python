@@ -33,6 +33,6 @@ class TestAccessNestedMap(unittest.TestCase):
             path: Tuple[str],
             exception: Exception,
     ) -> None:
-        '''Testing `access_nested_map`'s exception raising'''
+        '''Testing access_nested_map exception raising'''
         with self.assertRaises(Exception):
             access_nested_map(nested_map, path)
