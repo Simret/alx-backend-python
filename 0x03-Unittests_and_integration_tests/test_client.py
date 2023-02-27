@@ -21,7 +21,7 @@ class TestGithubOrgClient(unittest.TestCase):
         test_response = org_test.org
         self.assertEqual(test_response, mock_org.return_value)
         mock_org.assert_called_once()
-    
+
     def test_public_repos_url(self):
         '''Testing TestGithubOrgClient's _public_repos_url method'''
         with patch.object(GithubOrgClient,
@@ -49,3 +49,13 @@ class TestGithubOrgClient(unittest.TestCase):
                 self.assertIn(mock_repo.return_value[idx]['name'], test_repo)
             mock_repo.assert_called_once()
             m.assert_called_once()
+
+    @parameterized.expand([
+        ({"license": {"key": "my_license"}}, "my_license", True),
+        ({"license": {"key": "other_license"}}, "my_license", False)
+    ])
+    def test_has_license(self, repo, license_key, expected):
+        '''Testing GithubOrgClient's has_license method'''
+        test_instance = GithubOrgClient('holberton')
+        license_available = test_instance.has_license(repo, license_key)
+        self.assertEqual(license_available, expected)
