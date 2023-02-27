@@ -22,3 +22,13 @@ class TestAccessNestedMap(unittest.TestCase):
         '''Testing `access_nested_map`'s output'''
         response = access_nested_map(nested_map, path)
         self.assertEqual(response, expected)
+
+    def test_access_nested_map_exception(
+            self,
+            nested_map: Dict,
+            path: Tuple[str],
+            exception: Exception,
+    ) -> None:
+        '''Testing `access_nested_map`'s exception raising'''
+        with self.assertRaises(exception):
+            access_nested_map(nested_map, path)
